@@ -19,7 +19,7 @@ def create_app():
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
 
-    from .models import User # import all models before creating database
+    from .models import User, Post # import all models before creating database
 
     create_database(app)
 
