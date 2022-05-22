@@ -1,8 +1,5 @@
-from curses import flash
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-
-from Website import views
-from . import DB_NAME, db
+from . import db
 from .models import User
 
 auth = Blueprint("auth", __name__)
@@ -25,6 +22,7 @@ def sign_up():
     
         email_exists = User.query.filer_by(email=email).first() # looks to see if this is the only email in db
         username_exists =  User.query.filer_by(username=username).first()
+        
         if email_exists:
             flash('Email is already in use.', category='error') # flashes this message to user
         elif username_exists:
@@ -43,7 +41,7 @@ def sign_up():
             db.session.commit()
             flash('User Created!')
             return redirect(url_for('views.home'))
-            
+
     return render_template("signup.html")
 
 
