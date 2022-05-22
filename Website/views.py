@@ -31,3 +31,19 @@ def create_post():
             flash('Post created!', category='success')
             return redirect(url_for('views.home'))
     return render_template('create_post.html', user=current_user)
+
+
+    @views.route("/delete-post/<id>") # dynamic route
+    @login_required
+    def delete_post(id):
+        post = Post.query.filter_by(id=id).first()
+
+        if not post:
+            flash('Post does not exist.', category= 'error')
+        elif current_user.id != post.id:
+            flash("You do not have permission to delete this post.")
+        else:
+            db.session.delete(post)
+            db.session.commit()
+            flash('Post deleted', category='success')
+        return redirect(url_for('views.home'))
