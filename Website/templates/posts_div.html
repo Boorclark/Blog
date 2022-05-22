@@ -3,7 +3,7 @@
   <h1 align="center">{% block header %}Posts{% endblock %}</h1>
   <div id="posts">
     {% for post in posts %}
-    <div class="card border-dark">
+    <div class="card border-success">
       <div class="card-header d-flex justify-content-between align-items-center">
         <a href="/posts/{{post.user.username}}">{{post.user.username}}</a>
         <div>
