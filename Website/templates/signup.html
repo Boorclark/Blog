@@ -1,6 +1,10 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
 content %}
 <div class="container" style="padding-top: 60px;">
+  <style>.form-control:focus {
+    box-shadow: none;
+  }
+  </style>
   <form method="POST">
     <h3 align="center">
       <p class="text-success">Sign Up</p>

@@ -1,6 +1,9 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<h1 align="center">{% block header %}Posts{% endblock %}</h1>
+<h1 align="center">{% block header %}
+  <p class="text-success">Posts</p>
+  {% endblock %}
+</h1>
 <div id="posts">
   {% for post in posts %}
   <div class="card border-success">
@@ -15,7 +18,7 @@
         <i class="fa-solid fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
         {% endif %} {% if user.id == post.author %}
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
+          <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown"></button>
           <ul class="dropdown-menu">
             <li>
               <a href="/delete-post/{{post.id}}" class="dropdown-item">Delete</a>
@@ -40,7 +43,7 @@
                 <small class="text-muted"> {{comment.date_created}}</small>
                 {% if user.id == comment.author or user.id == post.author %}
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-primary dropdown-toggle"
+                  <button type="button" class="btn btn-sm btn-success dropdown-toggle"
                     data-bs-toggle="dropdown"></button>
                   <ul class="dropdown-menu">
                     <li>
@@ -64,9 +67,13 @@
         <small class="text-muted">No Comments</small>
         {% endif %}
       </p>
+      <style>.form-control:focus {
+        box-shadow: none;
+      }
+      </style>
       <form class="input-group mb-3" method="POST" action="/create-comment/{{post.id}}">
         <input type="text" id="text" name="text" class="form-control" placeholder="Comment something!" />
-        <button type="submit" class="btn btn-primary">Comment</button>
+        <button type="submit" class="btn btn-success">Comment</button>
       </form>
     </div>
     <div class="card-footer text-muted">{{post.date_created}}</div>
@@ -75,7 +82,7 @@
 </div>
 {% block footer %}
 <div align="center">
-  <a href="/create-post"><button type="button" class="btn btn-primary btn-lg">
+  <a href="/create-post"><button type="button" class="btn btn-success btn-lg">
       Create a Post
     </button></a>
 </div>
