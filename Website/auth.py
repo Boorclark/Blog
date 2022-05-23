@@ -60,7 +60,7 @@ def sign_up():
             db.session.add(new_user)                                                    # sha256 outputs hash that is 256 bits long
             db.session.commit()
             login_user(new_user, remember=True)
-            flash('User Created!')
+            flash('Thank you for joining!')
             return redirect(url_for('views.home'))
 
     return render_template("signup.html", user=current_user)
