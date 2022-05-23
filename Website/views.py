@@ -13,6 +13,12 @@ def home():
     return render_template("home.html", user=current_user, posts=posts)
 
 
+@views.route("/blog")
+def blogpage():
+    posts = Post.query.all()
+    return render_template("posts_div.html", user=current_user, posts=posts)
+
+
 @views.route("/create-post", methods=['GET', 'POST'])
 @login_required
 def create_post():
@@ -26,7 +32,7 @@ def create_post():
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category='success')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.blogpage'))
     return render_template('create_post.html', user=current_user)
 
 
@@ -76,7 +82,7 @@ def create_comment(post_id):
         else:
             flash('Post does not exist.', category='error')
 
-    return redirect(url_for('views.home'))
+    return redirect(url_for('views.blogpage')) 
 
 
 @views.route("/delete-comment/<comment_id>")
@@ -92,7 +98,7 @@ def delete_comment(comment_id):
         db.session.delete(comment)
         db.session.commit()
 
-    return redirect(url_for('views.home'))
+    return redirect(url_for('views.blogpage'))
 
 
 @views.route("/like-post/<post_id>", methods=['POST'])

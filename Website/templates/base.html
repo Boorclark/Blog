@@ -69,6 +69,7 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="/home">Home</a>
             {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="/blog">Blog</a>
             <a class="nav-item nav-link" href="/logout">Logout</a>
             {% else %}
             <a class="nav-item nav-link" href="/login">Login</a>
@@ -104,7 +105,10 @@
 
 <!-- Footer Section-->
 
-<div class="container" style="padding-top: 100px;"></div>
+<div class="container" style="padding-top: 15px;"></div>
+<style>footer {
+  box-shadow: 0 50vh 0 50vh rgb(30, 87, 61);
+}</style>
 <section class="section.subscribe bg-light">
   <div class="container">
     <div class="row jusify-content-center">
