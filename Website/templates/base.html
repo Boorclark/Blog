@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/3e0a483a60.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>{% block title %}{% endblock %}</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img src="\static\Sustainability-Logo@4x.png" alt="logo" width="80.25" height="80" />
-      </a>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/3e0a483a60.js" crossorigin="anonymous"></script>
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="\static\Sustainability-Logo@4x.png" alt="logo" width="80.25" height="80" />
+    </a>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
       <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
@@ -40,36 +30,32 @@
             <a class="nav-item nav-link" href="/login">Login</a>
             <a class="nav-item nav-link" href="/sign-up">Sign Up</a>
             {% endif %}
-            
-          </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-    {% with messages = get_flashed_messages(with_categories=true) %} {% if
-    messages %} {% for category, message in messages %} {% if category ==
-    'error' %}
-    <div class="alert alert-danger alter-dismissible fade show" role="alert">
-      {{ message }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+    </ul>
     </div>
-    {% else %}
-    <div class="alert alert-success alter-dismissible fade show" role="alert">
-      {{ message }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
-    {% endif %} {% endfor %} {% endif %} {% endwith %}
-    <div class="container">{% block content %}{% endblock %}</div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="text/javascript"
-      src="{{ url_for('static', filename='index.js')}}"
-    ></script>
-  </body>
+    </div>
+  </nav>
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %} {% for category, message in messages %} {% if category ==
+  'error' %}
+  <div class="alert alert-danger alter-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+  {% else %}
+  <div class="alert alert-success alter-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+  {% endif %} {% endfor %} {% endif %} {% endwith %}
+  <div class="container">{% block content %}{% endblock %}</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
+</body>
+
 </html>
 
 <!-- Footer Section-->
@@ -109,55 +95,57 @@
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-3 mb-5">
-          <h2>About us</h2>
-          <p>Clean4Change began with our founders, Katelyn Johnston and Shayla Long, passionate to address climate change during their senior year at Assumption High School in Louisville. Since 2021, the founder's group has spread across the state impacting various towns and communities. 
+        <h2>About us</h2>
+        <p>Clean4Change began with our founders, Katelyn Johnston and Shayla Long, passionate to address climate change
+          during their senior year at Assumption High School in Louisville. Since 2021, the founder's group has spread
+          across the state impacting various towns and communities.
 
-          </p>
-          <p><a href="#">Click here to learn more</a></p>
-      </div> 
-    
-    <div class="col-md-3 mb-5">
-       <h2>Contact &amp; Address</h2>
-       <ul class="list-unstyled footer-link">
-         <li class="d-flex">
-           <span class="me-3">Addresse:</span><span class="text-white">28 Avenue, Name here, Country Name</span>
-         </li>
-        <li class="d-flex">
-          <span class="me-3">Telephone:</span><span class="text-white">28 Avenue, Name here, Country Name</span>
-        </li>
-        <li class="d-flex">
-          <span class="me-3">Email:</span><span class="text-white">youremail@som.com</span>
-        </li>
-       </ul> 
-    </div>
+        </p>
+        <p><a href="#">Click here to learn more</a></p>
+      </div>
 
-    <div class="col-md-3 mb-5">
-      <h2>Quick links</h2>
-      <ul class="list-unstyled footer-link">
-        <li><a href="#"> About us</a></li>
-        <li><a href="#"> Testimonials</a></li>
-        <li><a href="#"> News</a></li>
-        <li><a href="#"> Articles</a></li>
-        <li><a href="#"> Contact us</a></li>
-      </ul>
+      <div class="col-md-3 mb-5">
+        <h2>Contact &amp; Address</h2>
+        <ul class="list-unstyled footer-link">
+          <li class="d-flex">
+            <span class="me-3">Addresse:</span><span class="text-white">28 Avenue, Name here, Country Name</span>
+          </li>
+          <li class="d-flex">
+            <span class="me-3">Telephone:</span><span class="text-white">28 Avenue, Name here, Country Name</span>
+          </li>
+          <li class="d-flex">
+            <span class="me-3">Email:</span><span class="text-white">youremail@som.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 mb-5">
+        <h2>Quick links</h2>
+        <ul class="list-unstyled footer-link">
+          <li><a href="#"> About us</a></li>
+          <li><a href="#"> Testimonials</a></li>
+          <li><a href="#"> News</a></li>
+          <li><a href="#"> Articles</a></li>
+          <li><a href="#"> Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <h2>Our social media</h2>
+        <ul class="list-unstyled footer-link d-flex">
+          <li><a href="#"> <span class="fa fa-facebook"></span></a></li>
+          <li><a href="#"> <span class="fa fa-instagram"></span></a></li>
+          <li><a href="#"> <span class="fa fa-tiktok"></span></a></li>
+          <li><a href="#"> <span class="fa fa-twitter"></span></a></li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text md center text-left">
+          <p>This template is made with <i class="fa fa-heaty-o"></i></p>
+        </div>
+      </div>
     </div>
-    
-  <div class="col-md-3">
-    <h2>Our social media</h2>
-    <ul class="list-unstyled footer-link d-flex">
-      <li><a href="#"> <span class="fa fa-facebook"></span></a></li>
-      <li><a href="#"> <span class="fa fa-instagram"></span></a></li>
-      <li><a href="#"> <span class="fa fa-tiktok"></span></a></li>
-      <li><a href="#"> <span class="fa fa-twitter"></span></a></li>
-    </ul>
-  </div>
-  
-  <div class="row">
-    <div class="col-12 text md center text-left">
-      <p>This template is made with <i class="fa fa-heaty-o"></i></p>
-    </div>
-  </div>
-  </div>
   </div>
 
 </footer>
