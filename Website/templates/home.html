@@ -7,31 +7,42 @@
     }
 </style>
 
-
-
-
-
-
-
+{% if user.is_authenticated %}
 <form method="POST">
     <div class="container" style="padding-top: 60px;">
         <div class="card" style="width: 20rem;">
-            <img src="\static\handsholdingworld.png" class="card-img-top" alt="..." width="280.3" height="287.3">
+            <img src="\static\c4cmeetupjpeg.jpeg" class="card-img-top" alt="..." width="375" height="261">
             <div class="card-body">
-                <h5 class="card-title text-success">Our Misson</h5>
+                <h5 class="card-title text-success">Blog4Change</h5>
                 <p class="card-text" style="font-size: 15px">
-                    Blog4Change allows people from all over the world to address their environmental concerns, and learn
-                    about different
-                    environmental topics that they may be interested in. Blog4Change is just another step we can take
-                    towards a
-                    greener future.
+                    Thank you for using Blog4Change and contributing to this community! Your efforts truly help inspire a greener planet.
+                    To view more of what our parent branch Clean4Change does, please click the following button. 
                 </p>
-                <a href="/sign-up" class="btn btn-success">Get started today!</a>
+                <a href="https://clean4changeky.wixsite.com/home" class="btn btn-success">Learn more!</a>
             </div>
         </div>
-        <!--<img src="\static\handsholdingworld.png" alt="logo" width="425" height="431" />-->
+    </div>
 
-
+        {% else %}
+        <form method="POST">
+            <div class="container" style="padding-top: 60px;">
+                <div class="card" style="width: 20rem;">
+                    <img src="\static\handsholdingworld.png" class="card-img-top" alt="..." width="280.3" height="287.3">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">Our Misson</h5>
+                        <p class="card-text" style="font-size: 15px">
+                            Blog4Change allows people from all over the world to address their environmental concerns, and learn
+                            about different
+                            environmental topics that they may be interested in. Blog4Change is just another step we can take
+                            towards a
+                            greener future.
+                        </p>
+                        <a href="/sign-up" class="btn btn-success">Get started today!</a>
+                    </div>
+                </div>
+                <!--<img src="\static\handsholdingworld.png" alt="logo" width="425" height="431" />-->
+        
+        {% endif %}
     </div>
     </div>
     {% endblock%}
