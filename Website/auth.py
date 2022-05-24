@@ -16,11 +16,11 @@ def login():
     if request.method == 'POST':
         email = request.form.get("email")
         password = request.form.get("password")
-    
+        username = request.form.get("username")
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in!', category='success')
+                flash(f'Hello {user.username}!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
@@ -71,3 +71,8 @@ def sign_up():
 def logout():
     logout_user()
     return redirect(url_for("views.home"))
+
+
+# @login_required
+# def profile():
+    # flash('Hello {username}!')
