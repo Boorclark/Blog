@@ -49,7 +49,7 @@ def delete_post(id):
         db.session.commit()
         flash('Post deleted.', category='success')
 
-    return redirect(url_for('views.home'))
+    return redirect(url_for('views.blogpage'))
 
 @views.route("/posts/<username>")
 @login_required

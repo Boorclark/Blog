@@ -71,14 +71,16 @@
             {% if user.is_authenticated %}
             <a class="nav-item nav-link" href="/blog">Blog</a>
             <a class="nav-item nav-link" href="/logout">Logout</a>
-            <style>.button-class {
-              background: #fff;
-              border-color: #fff;
-              border-style: solid;
-            }
+            <style>
+              .button-class {
+                background: #fff;
+                border-color: #fff;
+                border-style: solid;
+              }
             </style>
-            <form><button class=" btn text-success addMore" title="Hello!"><i class="fa-brands fa-pagelines fa-2x"></i></button></form>
-            
+            <form><button class=" btn text-success addMore" title="Hello {{user.username}}!"><i
+                  class="fa-brands fa-pagelines fa-2x"></i></button></form>
+
             {% else %}
             <a class="nav-item nav-link" href="/login">Login</a>
             <a class="nav-item nav-link" href="/sign-up">Sign Up</a>
@@ -114,37 +116,39 @@
 <!-- Footer Section-->
 
 <div class="container" style="padding-top: 15px;"></div>
-<style>footer {
-  box-shadow: 0 50vh 0 50vh rgb(30, 87, 61);
-}</style>
+<style>
+  footer {
+    box-shadow: 0 50vh 0 50vh rgb(30, 87, 61);
+  }
+</style>
 <section class="section.subscribe bg-light">
   <div class="container">
     <div class="row jusify-content-center">
       <div class="col-md12 mb-4">
-        <h1 class="heading">   
+        <h1 class="heading">
           <div class="container" style="padding-top: 10px;"></div>
           <p class="text-success">Get news &amp; updates</p>
         </h1>
       </div>
       <div class="col-md12">
         <style>
-         </style>
-          <form action="" method="POST">
-            <div class="row">
-              <div class="col-md-4 mb-4">
-                <input type="text" class="form-control text-success" placeholder="Your name here">
-              </div>
-
-              <div class="col-md-4 mb-4">
-                <input type="email" class="form-control text-success" placeholder="Your email here">
-              </div>
-
-              <div class="col-md-4 mb-4">
-                <a href="#" class="btn btn-success w-100">Subscribe</a>
-                <!--<input type="button" class="btn-success w-100" value="Subscribe">-->
-              </div>
+        </style>
+        <form action="" method="POST">
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <input type="text" class="form-control text-success" placeholder="Your name here">
             </div>
-          </form>  
+
+            <div class="col-md-4 mb-4">
+              <input type="email" class="form-control text-success" placeholder="Your email here">
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <a href="#" class="btn btn-success w-100">Subscribe</a>
+              <!--<input type="button" class="btn-success w-100" value="Subscribe">-->
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -155,16 +159,23 @@
     <div class="row mb-5">
       <div class="col-md-3 mb-5">
         <div class="container" style="padding-top: 30px;"></div>
-        <h2><p class="text-white">About us</p></h2>
-        <p><p class="text-white">Clean4Change began with our founders, Katelyn Johnston and Shayla Long, passionate to address climate change
+        <h2>
+          <p class="text-white">About us</p>
+        </h2>
+        <p>
+        <p class="text-white">Clean4Change began with our founders, Katelyn Johnston and Shayla Long, passionate to
+          address climate change
           during their senior year at Assumption High School in Louisville. Since 2021, the founder's group has spread
-          across the state impacting various towns and communities.</p></p>
+          across the state impacting various towns and communities.</p>
+        </p>
         <a href="https://clean4changeky.wixsite.com/home" class="text-white">Click here to learn more!</a>
       </div>
 
       <div class="col-md-3 mb-5">
         <div class="container" style="padding-top: 30px;"></div>
-        <h2><p class="text-white">Contact</p></h2>
+        <h2>
+          <p class="text-white">Contact</p>
+        </h2>
         <ul class="list-unstyled footer-link">
           <li class="d-flex">
             <span class="me-3 text-white">DM us @cleanforchangeky on Instagram if you have questions!
@@ -180,7 +191,9 @@
 
       <div class="col-md-3 mb-5">
         <div class="container" style="padding-top: 30px;"></div>
-        <h2><p class="text-white">Quick links</p></h2>
+        <h2>
+          <p class="text-white">Quick links</p>
+        </h2>
         <ul class="list-unstyled footer-link text-white">
           <li><a href="https://clean4changeky.wixsite.com/home/about" class="text-white"> More about us</a></li>
           <li><a href="https://clean4changeky.wixsite.com/home/our-members" class="text-white"> Our Members</a></li>
@@ -192,12 +205,19 @@
 
       <div class="col-md-3">
         <div class="container" style="padding-top: 30px;"></div>
-        <h2><p class="text-white">Our social media</p></h2>
+        <h2>
+          <p class="text-white">Our social media</p>
+        </h2>
         <ul class="list-unstyled footer-link d-flex">
-          <li><a href="https://www.facebook.com/groups/453225126456393" class="text-white"> <span class="fa fa-facebook  fa-lg"></span></a></li>
-          <li><a href="https://www.instagram.com/clean4changeky/" class="text-white" style="padding-left:1em"> <span class="fa fa-instagram  fa-lg"></span></a></li>
-          <li><a href="https://www.tiktok.com/@clean4changeky?_d=secCgYIASAHKAESPgo83XO0juyr8zdx4PZvgEohm9PYgoUvr5Q4%2BH6XgUp1%2B9NJ40%2FyuVWzgUNOxSV8i1rfjLCD%2B1IpTW2el%2FiCGgA%3D&_r=1&checksum=d07ac921314cfc67ad1e1bb463e2a372ecd6201932e0cc84a75c11dc785360ff&language=en&sec_uid=MS4wLjABAAAAJaHaOKiA2nAYfN7fXOpFIB3SdBWXKQ7VAL6Dd8YTbJ1ZeBnj6_KTBEmDY7nq8LuR&sec_user_id=MS4wLjABAAAAwGl7MGpfiTmkTuP9MNaApid0zzHtlAMVyPmgOK3TKps7uxc6luA_tBNX9XOUUh1l&share_app_id=1233&share_author_id=6858619326572790790&share_link_id=602E226E-6D2B-4338-BD5C-FEF81487F30C&source=h5_m&tt_from=copy&u_code=dbh185f5l04edl&user_id=6809787619046048774&utm_campaign=client_share&utm_medium=ios&utm_source=copy" class="text-white" style="padding-left:1em"> <span class="fa-brands fa-tiktok  fa-lg"></span></a></li>
-          <li><a href="https://twitter.com/clean4changeky" class="text-white" style="padding-left:1em"> <span class="fa fa-twitter  fa-lg"></span></a></li>
+          <li><a href="https://www.facebook.com/groups/453225126456393" class="text-white"> <span
+                class="fa fa-facebook  fa-lg"></span></a></li>
+          <li><a href="https://www.instagram.com/clean4changeky/" class="text-white" style="padding-left:1em"> <span
+                class="fa fa-instagram  fa-lg"></span></a></li>
+          <li><a
+              href="https://www.tiktok.com/@clean4changeky?_d=secCgYIASAHKAESPgo83XO0juyr8zdx4PZvgEohm9PYgoUvr5Q4%2BH6XgUp1%2B9NJ40%2FyuVWzgUNOxSV8i1rfjLCD%2B1IpTW2el%2FiCGgA%3D&_r=1&checksum=d07ac921314cfc67ad1e1bb463e2a372ecd6201932e0cc84a75c11dc785360ff&language=en&sec_uid=MS4wLjABAAAAJaHaOKiA2nAYfN7fXOpFIB3SdBWXKQ7VAL6Dd8YTbJ1ZeBnj6_KTBEmDY7nq8LuR&sec_user_id=MS4wLjABAAAAwGl7MGpfiTmkTuP9MNaApid0zzHtlAMVyPmgOK3TKps7uxc6luA_tBNX9XOUUh1l&share_app_id=1233&share_author_id=6858619326572790790&share_link_id=602E226E-6D2B-4338-BD5C-FEF81487F30C&source=h5_m&tt_from=copy&u_code=dbh185f5l04edl&user_id=6809787619046048774&utm_campaign=client_share&utm_medium=ios&utm_source=copy"
+              class="text-white" style="padding-left:1em"> <span class="fa-brands fa-tiktok  fa-lg"></span></a></li>
+          <li><a href="https://twitter.com/clean4changeky" class="text-white" style="padding-left:1em"> <span
+                class="fa fa-twitter  fa-lg"></span></a></li>
         </ul>
         <img src="\static\c4cHandsLogo.png" width="273.5" height="266" />
       </div>
