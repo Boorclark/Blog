@@ -19,9 +19,9 @@
         <span id="likes-count-{{post.id}}">
           {{ post.likes|length }}</span>
         {% if user.id in post.likes|map(attribute="author")|list %}
-        <i class="fa-regular fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
-        {% else %}
         <i class="fa-solid fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
+        {% else %}
+        <i class="fa-regular fa-thumbs-up" id="like-button-{{post.id}}" onclick="like({{post.id}})"></i>
         {% endif %} {% if user.id == post.author %}
         <div class="btn-group">
           <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown"></button>
