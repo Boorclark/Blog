@@ -2,7 +2,7 @@ from unicodedata import category
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from pyparsing import Regex
 from . import db
-from .models import User
+from .models import SubscribeInfo, User
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -71,6 +71,20 @@ def sign_up():
 def logout():
     logout_user()
     return redirect(url_for("views.home"))
+
+
+@auth.route('/home', methods=['GET', 'POST'])   
+def getSubscribe():
+    if request.method == 'POST':
+        infoEmail = request.form.get("infoEmail")
+        infoName = request.form.get("infoName")
+        newSubscribe = SubscribeInfo(infoEmail=infoEmail, infoName=infoName)
+        db.session.add(newSubscribe)
+        db.session.commit()
+        return redirect(url_for('views.home'))
+
+
+
 
 
 # @login_required
