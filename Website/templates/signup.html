@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
 content %}
 <div class="container" style="padding-top: 60px;">
-  <style>.form-control:focus {
-    box-shadow: none;
-  }
+  <style>
+    .form-control:focus {
+      box-shadow: none;
+    }
   </style>
   <form method="POST">
     <h3 align="center">
@@ -23,6 +25,6 @@ content %}
         <button class="btn btn-success" type="submit">Sign Up</button>
       </div>
     </div>
+  </form>
 </div>
-</form>
 {% endblock %}

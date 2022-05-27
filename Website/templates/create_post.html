@@ -1,11 +1,13 @@
+<!DOCTYPE html>
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 <h1 align="center">
   <p class="text-success">Make a Post</p>
 </h1>
-<style>.form-control:focus {
-  box-shadow: none;
-}
+<style>
+  .form-control:focus {
+    box-shadow: none;
+  }
 </style>
 <form method="POST">
   <textarea name="text" id="text" class="form-control"></textarea>
@@ -17,5 +19,5 @@
 <br />
 <div align="center">
   <a href="/blog"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
-  </div>
+</div>
 {% endblock %}
