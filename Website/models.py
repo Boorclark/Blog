@@ -37,7 +37,7 @@ class Like(db.Model):
     post_id = db.Column(db.Integer, db.ForeignKey(
         'post.id', ondelete="CASCADE"), nullable=False)
 
-class SubscribeInfo(db.Model, UserMixin):
+class SubscribeInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True) 
     infoEmail = db.Column(db.String(150), unique=True, nullable=False)
     infoName = db.Column(db.String(150), unique=True, nullable=False)
