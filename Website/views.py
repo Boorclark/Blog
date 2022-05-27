@@ -42,8 +42,10 @@ def delete_post(id):
     post = Post.query.filter_by(id=id).first()
     if not post:
         flash("Post does not exist.", category='error')
-    elif current_user.id != post.id:
-        flash('You do not have permission to delete this post.', category='error')
+    # elif current_user.id != post.id:
+    #     flash(current_user.id)
+    #     flash(post.id)
+    #     flash('You do not have permission to delete this post.', category='error')
     else:
         db.session.delete(post)
         db.session.commit()
