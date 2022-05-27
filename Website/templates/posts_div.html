@@ -42,6 +42,7 @@
         <div class="card">
           <div class="card-body" id="comments-expanded-{{post.id}}">
             {% for comment in post.comments %}
+            <div class="container" style="padding-top: 3px;"></div>
             <div class="d-flex justify-content-between align-items-center">
               <div>
                 <a class="text-success" href="/posts/{{comment.user.username}}">{{comment.user.username}}</a>:
