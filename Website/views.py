@@ -1,4 +1,7 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
+from distutils.command.upload import upload
+from fileinput import filename
+from io import BytesIO
+from flask import Flask, Blueprint, render_template, request, flash, redirect, send_file, url_for, jsonify
 from flask_login import login_required, current_user
 from .models import Post, User, Comment, Like
 from . import db
@@ -24,16 +27,23 @@ def blogpage():
 def create_post():
     if request.method == "POST":
         text = request.form.get("text")
-    
+        file = request.form.get('file')
+        upload = Post(filename=file.filename, data=file.read())
         if not text:
             flash("Post cannot be empty", category='error')
         else:
-            post = Post(text=text, author=current_user.id)
+            post = Post(text=text, author=current_user.id, upload=upload)
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category='success')
             return redirect(url_for('views.blogpage'))
     return render_template('create_post.html', user=current_user)
+
+@views.route('/download/<upload_id>')
+def download(upload_id):
+    upload = Post.query.filter_by(id=upload_id).first()
+    return send_file(BytesIO(upload.data), attachment_filename=upload.filename, as_attachment=True)
+
 
 
 @views.route("/delete-post/<id>")
