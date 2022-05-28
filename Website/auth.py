@@ -81,8 +81,8 @@ def getSubscribe():
         newSubscribe = SubscribeInfo(infoEmail=infoEmail, infoName=infoName)
         db.session.add(newSubscribe)
         db.session.commit()
-        return redirect(url_for('views.home'))
-
+        r
+        
 
 
 

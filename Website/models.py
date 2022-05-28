@@ -1,3 +1,4 @@
+from flask import flash
 from . import db  # "." is current package
 from flask_login import UserMixin
 from sqlalchemy.sql import func

@@ -27,22 +27,23 @@ def blogpage():
 def create_post():
     if request.method == "POST":
         text = request.form.get("text")
-        file = request.form.get('file')
-        upload = Post(filename=file.filename, data=file.read())
+        filename = request.form.get("filename")
+        print(filename)
+        #upload = Post(filename=file.filename, data=file.read())
         if not text:
             flash("Post cannot be empty", category='error')
         else:
-            post = Post(text=text, author=current_user.id, upload=upload)
+            post = Post(text=text, author=current_user.id, filename=filename)
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category='success')
             return redirect(url_for('views.blogpage'))
     return render_template('create_post.html', user=current_user)
 
-@views.route('/download/<upload_id>')
-def download(upload_id):
-    upload = Post.query.filter_by(id=upload_id).first()
-    return send_file(BytesIO(upload.data), attachment_filename=upload.filename, as_attachment=True)
+# @views.route('/download/<upload_id>')
+# def download(upload_id):
+#     upload = Post.query.filter_by(id=upload_id).first()
+#     return send_file(BytesIO(upload.data), attachment_filename=upload.filename, as_attachment=True)
 
 
 
