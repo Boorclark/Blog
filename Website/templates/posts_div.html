@@ -36,9 +36,11 @@
       </div>
     </div>
     <div class="card-body">
-      <form method="POST" enctype="multipart/form-data">
-          <img src="data:image/png;base64,{{post.b64}}">
-      </form>
+      {% if post.b64 |length > 0 %}
+        <form method="POST" enctype="multipart/form-data">
+            <img src="data:image/png;base64,{{post.b64}}">
+        </form>
+        {% endif %}
       <div class="card-text">{{post.text}}</div>
       <br />
       <div class="collapse" id="comments-{{post.id}}">
