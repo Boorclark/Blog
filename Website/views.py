@@ -1,10 +1,14 @@
+import base64
 from distutils.command.upload import upload
 from fileinput import filename
 from io import BytesIO
 from flask import Flask, Blueprint, render_template, request, flash, redirect, send_file, url_for, jsonify
 from flask_login import login_required, current_user
+from itsdangerous import base64_encode
 from .models import Post, User, Comment, Like
 from . import db
+from jinja2 import Environment
+import base64
 
 views = Blueprint("views", __name__)
 
@@ -29,17 +33,24 @@ def create_post():
         text = request.form.get("text")
         #filename = request.form.get("filename")
         file = request.files['filename'] 
+        newImg = base64.b64encode(file.read())
+        newImg = str(newImg.decode('utf-8'))
         
+        #newImg = base64.b64decode(newImg)
+        #newImg = open('new_img.png', 'wb')
         if not text:
             flash("Post cannot be empty", category='error')
         else:
-            post = Post(text=text, author=current_user.id, filename=file.filename, data=file.read())
+            post = Post(text=text, author=current_user.id, filename=file.filename, data=file.read(), b64=newImg)
             
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category='success')
             return redirect(url_for('views.blogpage'))
     return render_template('create_post.html', user=current_user)
+
+
+
 
 # @views.route('/download/<upload_id>')
 # def download(upload_id):

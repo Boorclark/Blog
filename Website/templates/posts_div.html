@@ -37,7 +37,7 @@
     </div>
     <div class="card-body">
       <form method="POST" enctype="multipart/form-data">
-        <img src="{{post.filename}}">
+          <img src="data:image/png;base64,{{post.b64}}">
       </form>
       <div class="card-text">{{post.text}}</div>
       <br />

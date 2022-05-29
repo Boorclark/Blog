@@ -21,6 +21,7 @@ class Post(db.Model):
     author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False) # if a user gets deleted, their post will too
     filename = db.Column(db.String(50))
     data = db.Column(db.LargeBinary)
+    b64 = db.Column(db.Text)
     #filename = db.Column(db.Text, unique=True, nullable=False)
     #filename = db.Column(db.String(150))
     #data = db.Column(db.LargeBinary)
