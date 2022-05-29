@@ -27,13 +27,14 @@ def blogpage():
 def create_post():
     if request.method == "POST":
         text = request.form.get("text")
-        filename = request.form.get("filename")
-        print(filename)
-        #upload = Post(filename=file.filename, data=file.read())
+        #filename = request.form.get("filename")
+        file = request.files['filename'] 
+        
         if not text:
             flash("Post cannot be empty", category='error')
         else:
-            post = Post(text=text, author=current_user.id, filename=filename)
+            post = Post(text=text, author=current_user.id, filename=file.filename, data=file.read())
+            
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category='success')
