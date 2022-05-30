@@ -30,9 +30,9 @@ def create_app():
     @login_manager.user_loader # uses session (from my understanding like a temporary cache) of a user that is logged in
     def load_user(id):
         return User.query.get(int(id))
-    
-    
+
     return app
+
 
 def create_database(app):
     if not path.exists("website/" + DB_NAME): # checks if path exists

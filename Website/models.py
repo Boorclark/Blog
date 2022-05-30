@@ -22,16 +22,8 @@ class Post(db.Model):
     filename = db.Column(db.String(50))
     data = db.Column(db.LargeBinary)
     b64 = db.Column(db.Text)
-    #filename = db.Column(db.Text, unique=True, nullable=False)
-    #filename = db.Column(db.String(150))
-    #data = db.Column(db.LargeBinary)
     comments = db.relationship('Comment', backref='post', passive_deletes=True)
     likes = db.relationship('Like', backref='post', passive_deletes=True)
-
-
-    
-
-
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)

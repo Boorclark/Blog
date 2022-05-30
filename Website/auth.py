@@ -10,7 +10,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 auth = Blueprint("auth", __name__)
 
 
-
 @auth.route("/login", methods=['GET', 'POST']) # allows get and post w/ out error
 def login():
     if request.method == 'POST':
@@ -81,12 +80,3 @@ def getSubscribe():
         newSubscribe = SubscribeInfo(infoEmail=infoEmail, infoName=infoName)
         db.session.add(newSubscribe)
         db.session.commit()
-        r
-        
-
-
-
-
-# @login_required
-# def profile():
-    # flash('Hello {username}!')

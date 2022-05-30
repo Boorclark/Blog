@@ -31,13 +31,10 @@ def blogpage():
 def create_post():
     if request.method == "POST":
         text = request.form.get("text")
-        #filename = request.form.get("filename")
         file = request.files['filename'] 
         newImg = base64.b64encode(file.read())
         newImg = str(newImg.decode('utf-8'))
         
-        #newImg = base64.b64decode(newImg)
-        #newImg = open('new_img.png', 'wb')
         if not text:
             flash("Post cannot be empty", category='error')
         else:
@@ -50,25 +47,12 @@ def create_post():
     return render_template('create_post.html', user=current_user)
 
 
-
-
-# @views.route('/download/<upload_id>')
-# def download(upload_id):
-#     upload = Post.query.filter_by(id=upload_id).first()
-#     return send_file(BytesIO(upload.data), attachment_filename=upload.filename, as_attachment=True)
-
-
-
 @views.route("/delete-post/<id>")
 @login_required
 def delete_post(id):
     post = Post.query.filter_by(id=id).first()
     if not post:
         flash("Post does not exist.", category='error')
-    # elif current_user.id != post.id:
-    #     flash(current_user.id)
-    #     flash(post.id)
-    #     flash('You do not have permission to delete this post.', category='error')
     else:
         db.session.delete(post)
         db.session.commit()

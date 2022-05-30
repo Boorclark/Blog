@@ -37,10 +37,10 @@
     </div>
     <div class="card-body">
       {% if post.b64 |length > 0 %}
-        <form method="POST" enctype="multipart/form-data">
-            <img src="data:image/png;base64,{{post.b64}}">
-        </form>
-        {% endif %}
+      <form method="POST" enctype="multipart/form-data">
+        <img src="data:image/png;base64,{{post.b64}}">
+      </form>
+      {% endif %}
       <div class="card-text">{{post.text}}</div>
       <br />
       <div class="collapse" id="comments-{{post.id}}">
@@ -75,7 +75,7 @@
       <p class="card-text">
         {% if post.comments|length > 0 %}
         <a class="text-success" data-bs-toggle="collapse" href="#comments-{{post.id}}" role="button">
-          <small>View {{post.comments|length}} Comments</small>      
+          <small>View {{post.comments|length}} Comments</small>
         </a>
         {% else %}
         <small class="text-muted">No Comments</small>
