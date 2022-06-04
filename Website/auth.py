@@ -74,14 +74,20 @@ def logout():
 
 @auth.route('/', methods=['GET', 'POST'])
 @auth.route('/home', methods=['GET', 'POST'])
-@auth.route('/blog', methods=['GET', 'POST'])
-@auth.route('/login', methods=['GET', 'POST'])
-@auth.route('/signup', methods=['GET', 'POST'])
 def getSubscribe():
     if request.method == 'POST':
         infoEmail = request.form.get("infoEmail")
         infoName = request.form.get("infoName")
         newSubscribe = SubscribeInfo(infoEmail=infoEmail, infoName=infoName)
-        db.session.add(newSubscribe)
-        db.session.commit()
-        #return redirect(url_for('views.home'))
+        
+        infoEmail_exists = SubscribeInfo.query.filter_by(infoEmail=infoEmail).first()
+        infoName_exists = SubscribeInfo.query.filter_by(infoName=infoName).first()
+        if infoEmail_exists:
+            flash('This email has already subscribed.', category='error')
+        elif infoName_exists:
+            flash('This username has already subscribed.', category='error')
+        else:
+            db.session.add(newSubscribe)
+            db.session.commit()
+    return redirect(url_for('views.home'))
+   
