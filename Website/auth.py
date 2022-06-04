@@ -72,7 +72,11 @@ def logout():
     return redirect(url_for("views.home"))
 
 
-@auth.route('/home', methods=['GET', 'POST'])   
+@auth.route('/', methods=['GET', 'POST'])
+@auth.route('/home', methods=['GET', 'POST'])
+@auth.route('/blog', methods=['GET', 'POST'])
+@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/signup', methods=['GET', 'POST'])
 def getSubscribe():
     if request.method == 'POST':
         infoEmail = request.form.get("infoEmail")
@@ -80,3 +84,4 @@ def getSubscribe():
         newSubscribe = SubscribeInfo(infoEmail=infoEmail, infoName=infoName)
         db.session.add(newSubscribe)
         db.session.commit()
+        #return redirect(url_for('views.home'))

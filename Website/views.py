@@ -60,6 +60,7 @@ def delete_post(id):
 
     return redirect(url_for('views.blogpage'))
 
+
 @views.route("/posts/<username>")
 @login_required
 def posts(username):
